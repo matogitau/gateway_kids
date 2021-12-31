@@ -1,0 +1,19 @@
+/* .BackDrop{
+  position:fixed;
+  background: rgba(170, 6, 107,0.7);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 200;
+  width: 100vw;
+} */
+.BackDrop{
+  display: grid;  
+  background: rgba(170, 6, 107,0.7);
+  height: 100vh;
+  position:fixed;
+  z-index: 200;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}

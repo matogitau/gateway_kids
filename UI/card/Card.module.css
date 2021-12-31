@@ -1,0 +1,8 @@
+.Card {
+  display: grid;
+  border: 2.5px solid rgb(132, 5, 250);
+  border-radius: 10px;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(223, 238, 8, 0.9);
+  color: inherit;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}

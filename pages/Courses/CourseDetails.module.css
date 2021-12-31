@@ -1,0 +1,15 @@
+.Course {
+  display: grid;
+  background-color: aqua;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 1.1rem;
+  padding: 15px 5px 10px 5px;
+}
+.Course button {
+  display: grid;
+  width: 20em;
+  height: 2em;
+  justify-self: center;
+  align-self: end;
+}

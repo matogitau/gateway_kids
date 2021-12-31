@@ -1,0 +1,62 @@
+/* since we are using css grid, we have to
+define the overall grid containeres and nested structure here 
+so that we can controll the overall structure */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: comic-sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: grid;
+  font-family: sans-serif;
+  text-align: center;
+  min-height: 100vh; /* to make sure we are using the whole   height of view height */
+  grid-template-columns: 1fr; /*the whole page*/
+  grid-template-rows: auto 1fr auto; /*auto for header and footer, 1fr for main */
+  grid-template-areas: "Header" "Main" "Footer";
+}
+
+.Header {
+  display: grid;
+  grid-area: Header;
+  background-color: aquamarine;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: center;
+}
+
+.Main {
+  /* use media queries to design the subitems
+   so that they stop sharing the columns when 
+   hamburger menu is clicked */
+  display: grid;
+  grid-area: Main;
+  background-color: aqua;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 1.1rem;
+  padding: 15px 5px 10px 5px;
+}
+/* bring this code after you understand how to resize
+  different divs while retaining one across width */
+/* .Main div:nth-child(3){   
+  grid-column-start: 1; 
+  grid-column-end: -1;
+  } */
+
+.Footer {
+  grid-area: Footer;
+  background-color: orange;
+  padding: 15px 5px 10px 5px;
+}

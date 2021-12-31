@@ -1,0 +1,11 @@
+.Modal{
+  display: grid;  
+  background: rgba(4, 65, 235, 0.7);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+  z-index: 400; 
+  /* 
+  fixed will position it relative to viewport */ 
+  position:fixed;  
+  top: 50%;
+  left: 50%;  
+}

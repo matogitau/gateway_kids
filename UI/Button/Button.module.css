@@ -1,0 +1,9 @@
+.Btn {
+  border: 0.5px solid rgb(238, 54, 8);
+  border-radius: 10px;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(238, 8, 115, 0.9);
+  justify-items: center;
+}
+.Btn:hover {
+  cursor: pointer;
+}
