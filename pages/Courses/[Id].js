@@ -79,7 +79,6 @@ export async function getStaticProps(context) {
   const yourCollection = db.collection("courses"); /* get collection handle */
   const course = await yourCollection.findOne({ _id: id });
 
-  console.log(course);
   return {
     props: {
       course,
