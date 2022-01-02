@@ -7,7 +7,7 @@ import Overlays from "../../UI/Overlays/Overlays";
 import classes from "./EnrollPlan.module.css";
 const holidayLearning = {
   id: "holidayLearning",
-  name: "holidayLearning",
+  cName: "holidayLearning",
   amount: "2000",
 };
 
@@ -22,17 +22,17 @@ const EnrollPlan = (props) => {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Overlays>
-        <div className={classes.EnrollPlan}>
-          <span>{holidayLearning.id}</span>
-          <span>{holidayLearning.name}</span>
-          <span>{holidayLearning.amount}</span>
-        </div>
-        <div className={classes.EnrollPlanOrder}>
-          <Button>Enroll</Button>
-          <Button>close</Button>
-        </div>
-      </Overlays>
+      {/* <Overlays> */}
+      <div className={classes.EnrollPlan}>
+        <span>{holidayLearning.id}</span>
+        <span>{holidayLearning.cName}</span>
+        <span>{holidayLearning.amount}</span>
+      </div>
+      <div className={classes.EnrollPlanOrder}>
+        <Button>Enroll</Button>
+        <Button>close</Button>
+      </div>
+      {/* </Overlays> */}
     </>
   );
 };

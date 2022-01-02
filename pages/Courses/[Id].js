@@ -47,11 +47,6 @@ const CourseDetails = (props) => {
             Enroll
           </Button>
         </Card>
-        {/* to be shown only if we 
-      enter /courses/CourseId/id/comment */}
-        {/* <Route path={`/Courses/CourseDetails/:${paramId}/Comments`}>        
-       <Comments courseId={paramId}/>
-     </Route> */}
       </div>
     </>
   );
