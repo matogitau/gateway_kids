@@ -60,7 +60,7 @@ export async function getStaticPaths() {
   const ids = await yourCollection.find({}, { _id: 1 }).toArray();
 
   return {
-    fallback: true /* false all items are included */,
+    fallback: false /* false all items are included */,
     paths: ids.map((id) => ({ params: { Id: id._id.toString() } })),
     /* paths key is an ARRAY of objects, params key is an obj*/
   };
