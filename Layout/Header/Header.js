@@ -10,7 +10,7 @@ const Header = () => {
       <div className={classes.logo}>
         <Image
           src={"/logo192By128.png"}
-          height={80}
+          height={200}
           width={200}
           layout="responsive"
           alt="logo"
