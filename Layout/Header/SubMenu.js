@@ -32,6 +32,7 @@ const SubMenu = (props) => {
     { id: "About Us", name: "AboutUs" },
     { id: "Plans", name: "Plans" },
     { id: "Login", name: "Login" },
+    { id: "newUser", name: "newUser" },
   ];
 
   const menuList = subMenu.map((menuItem) => {
@@ -56,7 +57,7 @@ const SubMenu = (props) => {
           <motion.aside
             className={classes.aside}
             initial={{ width: 0 }}
-            animate={{ width: "30vw" }}
+            /* animate={{ width: "30vw" }} */
             exit={{
               width: 0,
               transition: {

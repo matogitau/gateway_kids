@@ -1,0 +1,6 @@
+.input {
+  border-radius: 5px;
+  display: grid;
+  grid-gap: 0.8rem;
+  align-content: center;
+}

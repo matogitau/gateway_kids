@@ -16,6 +16,7 @@ div container is ul list*/
   display: grid;
   grid-gap: 1rem;
   z-index: 100;
+  justify-self: end;
 }
 .aside ul li {
   display: grid;

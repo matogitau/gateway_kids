@@ -1,0 +1,15 @@
+.newUserCard {
+  max-width: 50vw;
+  justify-self: center;
+  max-height: 50vh;
+  margin-top: 2.5rem;
+  background-color: #fef667;
+  padding: 0.9rem;
+}
+.newUserCard form {
+  display: grid;
+  grid-auto-rows: auto;
+}
+.heading {
+  font-weight: bolder;
+}
