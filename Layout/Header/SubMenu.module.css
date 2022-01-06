@@ -1,7 +1,7 @@
 .nav {
   display: grid;
   justify-self: end;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: 9fr 1fr;
   grid-auto-flow: column;
   margin: 1rem;
   grid-gap: 1rem;
@@ -10,23 +10,17 @@
 /* main is nav 
 div container is ul list*/
 .aside {
-  background-color: #c4a8ff;
   display: grid;
 }
-
-.container {
+.aside ul {
+  color: #0b1bfd;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+}
+.aside ul li {
   display: grid;
 }
-
-.btn-container {
-  position: fixed;
-}
-
-.container a {
-  color: #f9fafb;
-  text-decoration: none;
-  font-size: 1.75rem;
-  font-weight: 600;
-  display: block;
-  margin: 20px;
+.active {
+  color: red;
 }
