@@ -37,14 +37,14 @@ const SubMenu = (props) => {
   const menuList = subMenu.map((menuItem) => {
     return (
       <motion.li key={menuItem.id}>
-        <motion.Link
+        <Link
           href={`/${menuItem.name}`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
           {menuItem.name}
-        </motion.Link>
+        </Link>
       </motion.li>
     );
   });
