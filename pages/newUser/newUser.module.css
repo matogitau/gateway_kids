@@ -1,8 +1,6 @@
 .newUserCard {
-  max-width: 90vw;
   justify-self: center;
-  max-height: 80vh;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   background-color: #fef667;
   padding: 0.9rem;
 }
