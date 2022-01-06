@@ -1,8 +1,32 @@
-.subMenu{
+.nav {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  justify-self: end;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-flow: column;
+  margin: 1rem;
+  grid-gap: 1rem;
+  align-items: center;
+}
+/* main is nav 
+div container is ul list*/
+.aside {
+  background-color: #c4a8ff;
+  display: grid;
 }
 
-.active{
-  color:red;
+.container {
+  display: grid;
+}
+
+.btn-container {
+  position: fixed;
+}
+
+.container a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 1.75rem;
+  font-weight: 600;
+  display: block;
+  margin: 20px;
 }

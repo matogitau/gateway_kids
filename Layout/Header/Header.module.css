@@ -1,41 +1,13 @@
-/* the header  will hold the navigation
-hamburger menu
-it will be fixed at the top
-we wil also have a small logo on the left */
-
-/* li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-} */
-
-/* GRID STYLES */
-
-.hamburger {
-  justify-self: end;
-}
-
-.subMenu ul {
+/* .subMenu ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   grid-template-columns: 1fr;
   height: calc(80vh - 70px);
   align-content: space-evenly;
-}
+} */
 
 .logo {
   align-self: center;
   justify-content: center;
-}
-
-.logo img {
-  height: 100%;
-  max-width: 100%;
-}
-.HeaderSubMenu {
-  display: grid;
 }
