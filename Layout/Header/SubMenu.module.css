@@ -1,6 +1,5 @@
 .nav {
   display: grid;
-  justify-self: end;
   grid-template-columns: 9fr 1fr;
   grid-auto-flow: column;
   margin: 1rem;
@@ -24,8 +23,12 @@ div container is ul list*/
 .active {
   color: red;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
   .aside ul {
     grid-auto-flow: column;
   }
+}
+.btnContainer {
+  display: grid;
+  justify-self: end;
 }

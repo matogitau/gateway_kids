@@ -80,7 +80,7 @@ const SubMenu = (props) => {
           </motion.aside>
         </AnimatePresence>
       )}
-      <div className="btn-container">
+      <div className={classes.btnContainer}>
         <Button onclick={cycleOpen}>{open ? "Close" : "Open"}</Button>
       </div>
     </nav>
