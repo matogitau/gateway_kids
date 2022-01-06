@@ -15,12 +15,17 @@ div container is ul list*/
 .aside ul {
   color: #0b1bfd;
   display: grid;
-  grid-auto-flow: column;
   grid-gap: 1rem;
+  z-index: 100;
 }
 .aside ul li {
   display: grid;
 }
 .active {
   color: red;
+}
+@media only screen and (min-width: 600px) {
+  .aside ul {
+    grid-auto-flow: column;
+  }
 }
