@@ -6,11 +6,10 @@
   - for now we are not redirecting*/
 
 const sendDataHandler = async (data) => {
-  const content = data.details;
-  /* console.log(content); */
+  const contents = data.details;
   const response = await fetch(data.api, {
     method: data.method,
-    body: JSON.stringify(content),
+    body: JSON.stringify({ contents }),
     headers: {
       "Content-Type": "application/json",
     },

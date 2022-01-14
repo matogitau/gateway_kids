@@ -32,7 +32,7 @@ const SubMenu = (props) => {
     { id: "About Us", name: "AboutUs" },
     { id: "Plans", name: "Plans" },
     { id: "Login", name: "Login" },
-    { id: "NewUser", name: "NewUser" },
+    { id: "New User", name: "NewUser" },
   ];
 
   const menuList = subMenu.map((menuItem) => {

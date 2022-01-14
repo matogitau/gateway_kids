@@ -8,7 +8,7 @@ import clientPromise from "../../lib/mongodb";
 const CourseDetails = (props) => {
   const param = useRouter();
   const enrollHandler = async (course) => {
-    /* console.log(courseName); */
+    /* console.log(course); */
     const response = await fetch("/api/enrollCourses", {
       method: "POST",
       body: JSON.stringify({ course }),

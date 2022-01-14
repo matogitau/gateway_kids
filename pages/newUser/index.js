@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../helperFunctions/schema";
-import sendDataHandler from "../../helperFunctions/sendData,js";
+import sendDataHandler from "../../helperFunctions/sendData";
 
 const NewUser = () => {
   const {
@@ -18,15 +18,17 @@ const NewUser = () => {
     resolver: yupResolver(schema),
   });
 
-  const submittedFormHandler = (data) => {
-    /* console.log(data); */
-    delete data.confirmPassword; /* remove unwanted property */
+  const submittedFormHandler = async (userInputs) => {
+    delete userInputs.confirmPassword; /* remove unwanted property */
+
     sendDataHandler({
       api: "/api/auth/signUp",
       method: "POST",
-      details: data,
+      details: userInputs,
       direct: "/Courses",
     });
+
+    /* console.log(course); */
   };
 
   return (
