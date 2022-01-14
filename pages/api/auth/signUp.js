@@ -4,7 +4,7 @@ import hashedPassword from "../../../lib/hashedPassword";
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = { ...req.body.contents }; /* data is in userInputs   */
-    console.log(data);
+
     const { userName, email, age, password } = data;
 
     if (!email || !email.includes("@")) {
@@ -17,12 +17,19 @@ const handler = async (req, res) => {
         .json({ message: "invalid password, should be at least 8 characters" });
       return;
     }
-    const encryptedPassword = hashedPassword(password);
+
     const client = await clientPromise;
     const db = client.db();
 
     const collection = await db.collection("users");
+    const checkEmail = await collection.findOne({ email: email });
+    if (checkEmail) {
+      res.status(422).json({ message: "user already Exists" });
+      /* client.close(); */
+      return;
+    }
 
+    const encryptedPassword = await hashedPassword(password);
     const results = collection.insertOne({
       userName: userName,
       email: email,

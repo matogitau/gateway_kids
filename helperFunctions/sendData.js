@@ -22,6 +22,12 @@ const sendDataHandler = async (data) => {
       console.log("Error happened here!");
       console.error(error);
     }
+    if (!response.ok) {
+      throw new Error(data.message || "something went wrong");
+    }
+    if (response.ok) {
+      console.log("all is ok");
+    }
   });
 };
 
