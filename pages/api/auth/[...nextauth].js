@@ -23,7 +23,7 @@ export default NextAuth({
             { userName: credentials.userName },
           ],
         });
-        console.log(user);
+
         if (!user) {
           throw new Error("No user found");
         }
