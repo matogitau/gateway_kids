@@ -1,5 +1,5 @@
 import clientPromise from "../../../lib/mongodb";
-import hashedPassword from "../../../lib/hashedPassword";
+import { hashedPassword } from "../../../lib/hashedPassword";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -22,8 +22,10 @@ const handler = async (req, res) => {
     const db = client.db();
 
     const collection = await db.collection("users");
-    const checkEmail = await collection.findOne({ email: email });
-    if (checkEmail) {
+    const checkUser = await collection.findOne({
+      $or: [{ email: email }, { userName: userName }],
+    }); /* $or operator checks if either of the condition is met */
+    if (checkUser) {
       res.status(422).json({ message: "user already Exists" });
       /* client.close(); */
       return;

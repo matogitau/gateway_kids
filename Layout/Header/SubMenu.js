@@ -2,7 +2,16 @@ import Link from "next/link";
 import classes from "./SubMenu.module.css";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import Button from "../../UI/Button/Button";
+import { useSession, signOut } from "next-auth/react";
+
 const SubMenu = (props) => {
+  const { data: session, status } =
+    useSession(); /*  status returns authenticated */
+
+  const logoutHandler = () => {
+    signOut();
+  };
+
   const [open, cycleOpen] = useCycle(false, true);
   const sideVariants = {
     open: {
@@ -33,22 +42,82 @@ const SubMenu = (props) => {
     { id: "Plans", name: "Plans" },
     { id: "Login", name: "Login" },
     { id: "New User", name: "NewUser" },
+    { id: "Profile", name: "Profile" },
   ];
 
-  const menuList = subMenu.map((menuItem) => {
-    return (
-      <motion.li key={menuItem.id}>
+  const menuList = (
+    <motion.li>
+      <Link
+        href={`/WhyCode`}
+        activeClassName={classes.active}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+      >
+        WhyCode
+      </Link>
+      <Link
+        href={`/Courses`}
+        activeClassName={classes.active}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+      >
+        Courses
+      </Link>
+      <Link
+        href={`/AboutUs`}
+        activeClassName={classes.active}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+      >
+        AboutUs
+      </Link>
+      <Link
+        href={`/Plans`}
+        activeClassName={classes.active}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+      >
+        Plans
+      </Link>
+      {!session && (
         <Link
-          href={`/${menuItem.name}`}
+          href={`/Login`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
-          {menuItem.name}
+          Login
         </Link>
-      </motion.li>
-    );
-  });
+      )}
+      {session && (
+        <span className={classes.logout} onClick={logoutHandler}>
+          Logout
+        </span>
+      )}
+
+      {!session && (
+        <Link
+          href={`/NewUser`}
+          activeClassName={classes.active}
+          variants={itemVariants}
+          whileHover={{ scale: 1.1 }}
+        >
+          NewUser
+        </Link>
+      )}
+
+      {session && (
+        <Link
+          href={`/Profile`}
+          activeClassName={classes.active}
+          variants={itemVariants}
+          whileHover={{ scale: 1.1 }}
+        >
+          Profile
+        </Link>
+      )}
+    </motion.li>
+  );
 
   return (
     <nav className={classes.nav}>
@@ -78,6 +147,12 @@ const SubMenu = (props) => {
             >
               {menuList}
             </motion.ul>
+            {status != "authenticated" && <span>you are not logged in</span>}
+            {status === "authenticated" && (
+              <span className={classes.welcome}>
+                welcome {session.user.email.split("@")[0]}
+              </span> /* removes extra characters from @ */
+            )}
           </motion.aside>
         </AnimatePresence>
       )}

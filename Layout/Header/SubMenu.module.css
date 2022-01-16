@@ -20,16 +20,26 @@ div container is ul list*/
 }
 .aside ul li {
   display: grid;
+  grid-gap: 1rem;
 }
 .active {
   color: red;
 }
 @media only screen and (min-width: 600px) {
-  .aside ul {
+  .aside ul li {
     grid-auto-flow: column;
   }
 }
 .btnContainer {
   display: grid;
   justify-self: end;
+}
+.logout {
+  cursor: pointer;
+  color: rgb(255, 7, 180);
+  font-weight: 700;
+}
+.welcome {
+  color: rgb(255, 7, 180);
+  font-weight: 800;
 }

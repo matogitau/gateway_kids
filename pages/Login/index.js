@@ -5,10 +5,11 @@ import Card from "../../UI/card/Card";
 import classes from "./Login.module.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-
-import sendDataHandler from "../../helperFunctions/sendData";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const route = useRouter();
   const {
     register,
     handleSubmit,
@@ -16,14 +17,15 @@ const Login = () => {
   } = useForm();
 
   const submittedFormHandler = async (userInputs) => {
-    /* sendDataHandler({
-      api: "/api/auth/signUp",
-      method: "POST",
-      details: userInputs,
-      direct: "/Courses",
-    }); */
-    /*  we check if authorization token is ok here */
-    console.log(userInputs);
+    const result = await signIn("credentials", {
+      redirect: false,
+      email: userInputs.userNameEmail,
+      userName: userInputs.userNameEmail,
+      password: userInputs.password,
+    }); /* result will always resolve */
+    if (!result.error) {
+      route.replace("/");
+    }
   };
 
   return (
@@ -41,17 +43,17 @@ const Login = () => {
         <form onSubmit={handleSubmit(submittedFormHandler)}>
           <p className={classes.heading}>Login in below existing user</p>
           <Input
-            htmlFor="userName"
-            id="userName"
-            label="userName"
+            htmlFor="userNameEmail"
+            id="userNameEmail"
+            label="UserName or Email"
             input={{
               type: "text",
-              ...register("userName", { required: true, minLength: 4 }),
-              required: true,
+              ...register("userNameEmail", { required: true, minLength: 4 }),
             }}
           ></Input>
           <span className={classes.spanning}>
-            {errors.userName && "Enter userName at least four characters"}
+            {errors.userName &&
+              "Enter userName or Email at least four characters"}
           </span>
 
           <Input
