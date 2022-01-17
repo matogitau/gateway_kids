@@ -81,10 +81,10 @@ const Login = () => {
   );
 };
 /* determining whether to load login page on server side */
-/* export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   const session = await getSession({
     req: context.req,
-  }); 
+  });
   if (session) {
     return {
       redirect: {
@@ -97,5 +97,5 @@ const Login = () => {
     props: { session },
   };
 }
- */
+
 export default Login;
