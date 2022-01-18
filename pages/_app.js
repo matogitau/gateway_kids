@@ -22,10 +22,12 @@ export default function MyApp({
   pageProps: { session, ...pageProps }
 }) {
   return (
-    <SessionProvider session={session} className="App">
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </SessionProvider>
+    <div className="App">
+      <SessionProvider session={session}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </SessionProvider>
+    </div>
   );
 }
