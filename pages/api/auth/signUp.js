@@ -3,7 +3,7 @@ import { hashedPassword } from "../../../lib/hashedPassword";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const data = { ...req.body.contents }; /* data is in userInputs   */
+    const data = { ...req.body.contents }; /* data is in contents   */
 
     const { userName, email, age, password } = data;
 
