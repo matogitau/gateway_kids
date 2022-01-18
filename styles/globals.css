@@ -21,7 +21,7 @@ a {
 
 .App {
   display: grid;
-  font-family: sans-serif;
+
   text-align: center;
   min-height: 100vh; /* to make sure we are using the whole   height of view height */
   grid-template-columns: 1fr; /*the whole page*/
