@@ -6,7 +6,7 @@ import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
   session: {
-    strategy: "database",
+    strategy: "jwt",
   } /* check other providers you may add database etc */,
   providers: [
     CredentialsProviders({
