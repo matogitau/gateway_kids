@@ -3,16 +3,29 @@ import Header from "../Layout/Header/Header";
 import Footer from "../Layout/Footer/Footer";
 import { SessionProvider } from "next-auth/react";
 /* component opens all pages automatically*/
-function MyApp({ Component, pageProps }) {
+// function MyApp({ Component, pageProps }) {
+//   return (
+//     <div className="App">
+//       <SessionProvider session={pageProps.session}>
+//         <Header />
+//         <Component {...pageProps} />
+//         <Footer />
+//       </SessionProvider>
+//     </div>
+//   );
+// }
+
+// export default MyApp;
+
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps }
+}) {
   return (
-    <div className="App">
-      <SessionProvider session={pageProps.session}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </SessionProvider>
-    </div>
+    <SessionProvider session={session}>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </SessionProvider>
   );
 }
-
-export default MyApp;
