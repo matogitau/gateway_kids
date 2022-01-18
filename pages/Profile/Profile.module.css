@@ -1,0 +1,25 @@
+.profile {
+  display: grid;
+  background-color: rgba(5, 21, 71, 0.1);
+  grid-template-columns: 1fr 8fr;
+}
+.leftMenu {
+  grid-column: 1 / 1;
+  background-color: rgba(18, 199, 100, 0.5);
+  display: grid;
+  grid-row-gap: 1rem;
+}
+.leftMenu ul {
+  display: grid;
+  justify-items: center;
+}
+
+.leftMenu ul li {
+  cursor: pointer;
+}
+
+.rightDisplay {
+  grid-column: 2 / 3;
+  justify-self: center;
+  align-self: center;
+}
