@@ -1,11 +1,11 @@
 .profile {
   display: grid;
-  background-color: rgba(5, 21, 71, 0.1);
+  background-color: rgba(255, 21, 71, 0.9);
   grid-template-columns: 1fr 8fr;
 }
 .leftMenu {
   grid-column: 1 / 1;
-  background-color: rgba(18, 199, 100, 0.5);
+  background-color: rgba(38, 299, 0, 0.9);
   display: grid;
   grid-row-gap: 1rem;
 }
@@ -16,6 +16,7 @@
 
 .leftMenu ul li {
   cursor: pointer;
+  color: blue;
 }
 
 .rightDisplay {

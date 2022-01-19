@@ -6,7 +6,7 @@ import classes from "./components.module.css";
 const ChangePassword = () => {
   return (
     <Card className={classes.changePassword}>
-      <Input label="Enter old Password"></Input>
+      <Input input={{ type: "password" }} label="Enter old Password"></Input>
       <Input label="Enter New Password"></Input>
       <Input label="Confirm New Password"></Input>
       <Button>Submit</Button>
