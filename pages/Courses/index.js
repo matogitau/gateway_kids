@@ -45,8 +45,7 @@ for server side rendering of html*/
 
 export async function getStaticProps() {
   const client = await clientPromise; /* gets us the client conn */
-  const db =
-    client.db(); /* calls default db in env.local you can insert a db here to change default db*/
+  const db = client.db(); /* calls default db in env.local you can insert a db here to change default db*/
   /* const isconnected = await client.isConnected();
   console.log("isconnected", isconnected); */
   const yourCollection = db.collection("courses"); /* get collection handle */
@@ -58,10 +57,10 @@ export async function getStaticProps() {
     props: {
       courses: courses.map((course) => ({
         courseName: course.name,
-        id: course._id.toString(),
-      })),
+        id: course._id.toString()
+      }))
     } /*props must be obj used by courses summary */,
-    revalidate: 100 /*no of SECONDS server WAITS updates the function */,
+    revalidate: 1 /*no of SECONDS server WAITS updates the function */
   };
 }
 
