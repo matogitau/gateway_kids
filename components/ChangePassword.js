@@ -9,7 +9,10 @@ const ChangePassword = () => {
       <Input input={{ type: "password" }} label="Enter old Password"></Input>
       <Input label="Enter New Password"></Input>
       <Input label="Confirm New Password"></Input>
-      <Button>Submit</Button>
+      <div className={classes.submitCancel}>
+        <Button>Submit</Button>
+        <Button>Cancel</Button>
+      </div>
     </Card>
   );
 };
