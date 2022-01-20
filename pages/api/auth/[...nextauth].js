@@ -4,7 +4,7 @@ import CredentialsProviders from "next-auth/providers/credentials";
 import { verifyPassword } from "../../../lib/hashedPassword";
 
 import clientPromise from "../../../lib/mongodb";
-
+// for login/logout/session creation
 export default NextAuth({
   session: {
     strategy: "jwt"
