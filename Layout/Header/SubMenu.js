@@ -48,7 +48,7 @@ const SubMenu = (props) => {
   const menuList = (
     <motion.li>
       <Link
-        href={`/WhyCode`}
+        href={`/whyCode`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
@@ -64,7 +64,7 @@ const SubMenu = (props) => {
         Courses
       </Link>
       <Link
-        href={`/AboutUs`}
+        href={`/aboutUs`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
@@ -72,7 +72,7 @@ const SubMenu = (props) => {
         AboutUs
       </Link>
       <Link
-        href={`/Plans`}
+        href={`/plans`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
@@ -81,7 +81,7 @@ const SubMenu = (props) => {
       </Link>
       {!session && (
         <Link
-          href={`/Login`}
+          href={`/login`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
@@ -97,7 +97,7 @@ const SubMenu = (props) => {
 
       {!session && (
         <Link
-          href={`/NewUser`}
+          href={`/newUser`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
@@ -108,7 +108,7 @@ const SubMenu = (props) => {
 
       {session && (
         <Link
-          href={`/Profile`}
+          href={`/profile`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}

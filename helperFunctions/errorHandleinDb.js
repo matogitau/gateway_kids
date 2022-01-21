@@ -1,24 +1,25 @@
 import clientPromise from "../../../lib/mongodb";
-import handler from "../pages/api/auth/signUp";
 
-export async function connectDb(collection) {
+export async function connectDbandColl(dbCollection) {
+  /* you can pass dbCollection or fail */
   try {
     const client = await clientPromise;
-    const collection = await db.collection(collection);
+    const db = client.db();
+    const collection = await db.collection(dbCollection);
+    return collection;
   } catch (error) {
-    res.status(500).json({ message: "cant connect to Db" });
+    res.status(500).json({ message: "cant connect to Db or collection" });
   }
 
   return client;
 }
 
-export async function insertOneOnly(client, documents, collection) {
-  /* client is connection handle
+export async function insertOneOnly(connectDbandColl, documents, collection) {
+  /* connectDbandColl is db and collection
   document is an obj to be inserted,
     collection is db collection */
   try {
-    const db = client.db();
-    await db.collection(collection).insertOne(documents);
+    await connectDbandColl.insertOne(documents);
     res.status(201).json({ message: "inserted!" });
   } catch (error) {
     res.status(500).json({ message: "inserting failed" });
