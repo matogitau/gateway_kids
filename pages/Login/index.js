@@ -23,6 +23,7 @@ const Login = () => {
       userName: userInputs.userNameEmail,
       password: userInputs.password
     }); /* result will always resolve */
+
     if (!result.error) {
       route.replace("/");
     }
