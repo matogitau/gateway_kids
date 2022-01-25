@@ -5,8 +5,10 @@ import Button from "../../UI/Button/Button";
 import { useSession, signOut } from "next-auth/react";
 
 const SubMenu = (props) => {
-  const { data: session, status } =
-    useSession(); /*  status returns authenticated */
+  const {
+    data: session,
+    status
+  } = useSession(); /*  status returns authenticated */
 
   const logoutHandler = () => {
     signOut();
@@ -17,23 +19,23 @@ const SubMenu = (props) => {
     open: {
       transition: {
         staggerchildren: 0.1 /* opens after 0.1 sec each */,
-        staggerDirection: 1 /* 1 starts from top */,
-      },
+        staggerDirection: 1 /* 1 starts from top */
+      }
     },
     closed: {
       transition: {
         staggerchildren: 0.1,
-        staggerDirection: -1,
-      },
-    },
+        staggerDirection: -1
+      }
+    }
   };
   const itemVariants = {
     open: {
-      opacity: 1,
+      opacity: 1
     },
     closed: {
-      opacity: 0,
-    },
+      opacity: 0
+    }
   };
   const subMenu = [
     { id: "Why Code", name: "WhyCode" },
@@ -42,7 +44,7 @@ const SubMenu = (props) => {
     { id: "Plans", name: "Plans" },
     { id: "Login", name: "Login" },
     { id: "New User", name: "NewUser" },
-    { id: "Profile", name: "Profile" },
+    { id: "Profile", name: "Profile" }
   ];
 
   const menuList = (
@@ -56,7 +58,7 @@ const SubMenu = (props) => {
         WhyCode
       </Link>
       <Link
-        href={`/Courses`}
+        href={`/courses`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
@@ -131,8 +133,8 @@ const SubMenu = (props) => {
               width: 0,
               transition: {
                 delay: 0.7,
-                duration: 0.3,
-              },
+                duration: 0.3
+              }
             }}
           >
             {/* initial sets size on page load */}
