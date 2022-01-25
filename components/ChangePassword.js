@@ -19,12 +19,12 @@ const ChangePassword = (props) => {
 
   const onSubmitHandler = async (userInputs) => {
     console.log(userInputs);
-    /* sendDataHandler({
+    sendDataHandler({
       api: "/api/auth/users/changePassword",
       method: "PATCH",
       details: userInputs,
-      direct: "/profile"
-    }); */
+      direct: "/profile",
+    });
   };
 
   return (
