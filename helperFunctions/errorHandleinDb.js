@@ -10,6 +10,7 @@ export async function connectDbandColl(dbCollection, res) {
     return collection;
   } catch (error) {
     res.status(500).json({ message: "cant connect to Db or collection" });
+    return;
   }
 }
 
@@ -22,6 +23,7 @@ export async function insertOneOnly(connectDbandColl, documents, res) {
     res.status(201).json({ message: "inserted!" });
   } catch (error) {
     res.status(500).json({ message: "inserting failed" });
+    return;
   }
 }
 
@@ -34,6 +36,7 @@ export async function findOneOnly(connectDbandColl, searchObj, res) {
     res.status(201).json({ message: "success!" });
   } catch (error) {
     res.status(500).json({ message: "searching failed" });
+    return;
   }
 }
 
@@ -51,5 +54,6 @@ export async function updateOneOnly(
     res.status(201).json({ message: "updated sucessfully!" });
   } catch (error) {
     res.status(500).json({ message: "update failed" });
+    return;
   }
 }
