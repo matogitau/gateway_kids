@@ -1,14 +1,11 @@
 import { getSession } from "next-auth/react";
-import ChangePassword from "../../../../components/ChangePassword";
+
 import {
   connectDbandColl,
   findOneOnly,
-  updateOneOnly
+  updateOneOnly,
 } from "../../../../helperFunctions/errorHandleinDb";
-import {
-  verifyPassword,
-  hashedPassword
-} from "../../../../lib/hashedPassword/verifyPassword";
+import { verifyPassword, hashedPassword } from "../../../../lib/hashedPassword";
 
 export default async function handler(req, res) {
   if (req.method !== "PATCH") {
@@ -16,7 +13,7 @@ export default async function handler(req, res) {
   }
 
   const session = await getSession({
-    req: req
+    req: req,
   }); /* req key is available  on serverside */
   // protect api route with this code
   if (!session) {
@@ -36,7 +33,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const dbPassword = user.dbPassword;
+  const dbPassword = user.password;
   const passwordVerified = await verifyPassword(oldPassword, dbPassword);
 
   if (!passwordVerified) {

@@ -12,19 +12,19 @@ const ChangePassword = (props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(changePasswordSchema)
+    resolver: yupResolver(changePasswordSchema),
   });
 
   const onSubmitHandler = async (userInputs) => {
     console.log(userInputs);
-    sendDataHandler({
+    /* sendDataHandler({
       api: "/api/auth/users/changePassword",
       method: "PATCH",
       details: userInputs,
       direct: "/profile"
-    });
+    }); */
   };
 
   return (
@@ -32,7 +32,7 @@ const ChangePassword = (props) => {
       <Input
         input={{
           type: "password",
-          ...register("oldPassword", { required: true, minLength: 8 })
+          ...register("oldPassword", { required: true, minLength: 8 }),
         }}
         label="Enter old Password"
       ></Input>
@@ -40,7 +40,7 @@ const ChangePassword = (props) => {
       <Input
         input={{
           type: "password",
-          ...register("newPassword", { required: true, minLength: 8 })
+          ...register("newPassword", { required: true, minLength: 8 }),
         }}
         label="Enter New Password"
       ></Input>
@@ -48,7 +48,7 @@ const ChangePassword = (props) => {
       <Input
         input={{
           type: "password",
-          ...register("newPasswordConfirm", { required: true, minLength: 8 })
+          ...register("newPasswordConfirm", { required: true, minLength: 8 }),
         }}
         label="Confirm New Password"
       ></Input>
