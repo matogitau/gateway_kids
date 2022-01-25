@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { changePasswordSchema } from "../helperFunctions/schema";
 
+import sendDataHandler from "../helperFunctions/sendData";
+
 const ChangePassword = (props) => {
   const {
     register,
@@ -16,7 +18,12 @@ const ChangePassword = (props) => {
   });
 
   const onSubmitHandler = async (userInputs) => {
-    console.log(userInputs);
+    sendDataHandler({
+      api: "/api/auth/users/changePassword",
+      method: "POST",
+      details: userInputs,
+      direct: "/profile"
+    });
   };
 
   return (

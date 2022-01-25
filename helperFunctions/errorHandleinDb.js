@@ -1,7 +1,8 @@
 import clientPromise from "../lib/mongodb";
 
 export async function connectDbandColl(dbCollection, res) {
-  /* you can pass dbCollection or fail */
+  /* you can pass dbCollection or fail 
+  it is the collection*/
   try {
     const client = await clientPromise;
     const db = client.db();
@@ -21,5 +22,34 @@ export async function insertOneOnly(connectDbandColl, documents, res) {
     res.status(201).json({ message: "inserted!" });
   } catch (error) {
     res.status(500).json({ message: "inserting failed" });
+  }
+}
+
+export async function findOneOnly(connectDbandColl, searchObj, res) {
+  /* connectDbandColl is the collection handle
+  document is an obj to be used to find,
+     */
+  try {
+    await connectDbandColl.findOne(searchObj);
+    res.status(201).json({ message: "success!" });
+  } catch (error) {
+    res.status(500).json({ message: "searching failed" });
+  }
+}
+
+export async function updateOneOnly(
+  connectDbandColl,
+  identifierObj,
+  changingObj,
+  res
+) {
+  /* connectDbandColl is the collection handle
+  document is an obj to be used to find,
+     */
+  try {
+    await connectDbandColl.updateOne(identifierObj, { $set: changingObj });
+    res.status(201).json({ message: "updated sucessfully!" });
+  } catch (error) {
+    res.status(500).json({ message: "update failed" });
   }
 }

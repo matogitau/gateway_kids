@@ -25,7 +25,7 @@ const NewUser = () => {
       api: "/api/auth/signUp",
       method: "POST",
       details: userInputs,
-      direct: "/Courses"
+      direct: "/courses"
     });
 
     /* console.log(course); */
