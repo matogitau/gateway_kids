@@ -18,13 +18,14 @@ const ChangePassword = (props) => {
   });
 
   const onSubmitHandler = async (userInputs) => {
+    console.log("was clicked");
     console.log(userInputs);
-    sendDataHandler({
+    /* sendDataHandler({
       api: "/api/auth/users/changePassword",
       method: "PATCH",
       details: userInputs,
       direct: "/profile",
-    });
+    }); */
   };
 
   return (

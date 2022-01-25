@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react"; /* can be used on serverside */
-import Link from "next/link";
+
 import classes from "./Profile.module.css";
 import ChangePassword from "../../components/ChangePassword";
 import { useState } from "react";
@@ -38,18 +38,18 @@ const Profile = () => {
 /* to redirect on the server side */
 export async function getServerSideProps(context) {
   const session = await getSession({
-    req: context.req
+    req: context.req,
   }); /* will extract session cookie */
   if (!session) {
     return {
       redirect: {
         destination: "/Login",
-        permanent: false
-      }
+        permanent: false,
+      },
     };
   }
   return {
-    props: { session }
+    props: { session },
   };
 }
 export default Profile;
