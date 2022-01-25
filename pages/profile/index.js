@@ -22,13 +22,14 @@ const Profile = () => {
         <ul>
           <li>my photo </li>
           <li>Enrolled Courses</li>
-
           <li onClick={changePasswordHandler}>change password</li>
         </ul>
       </nav>
 
       <div className={classes.rightDisplay}>
-        {changePassword && <ChangePassword />}
+        {changePassword && (
+          <ChangePassword onCancel={changePasswordHandler}></ChangePassword>
+        )}
       </div>
       {/* show modal here */}
     </div>
@@ -37,18 +38,18 @@ const Profile = () => {
 /* to redirect on the server side */
 export async function getServerSideProps(context) {
   const session = await getSession({
-    req: context.req,
+    req: context.req
   }); /* will extract session cookie */
   if (!session) {
     return {
       redirect: {
         destination: "/Login",
-        permanent: false,
-      },
+        permanent: false
+      }
     };
   }
   return {
-    props: { session },
+    props: { session }
   };
 }
 export default Profile;

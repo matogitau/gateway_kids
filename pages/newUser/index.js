@@ -13,9 +13,9 @@ const NewUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   const submittedFormHandler = async (userInputs) => {
@@ -25,7 +25,7 @@ const NewUser = () => {
       api: "/api/auth/signUp",
       method: "POST",
       details: userInputs,
-      direct: "/Courses",
+      direct: "/Courses"
     });
 
     /* console.log(course); */
@@ -70,18 +70,18 @@ const NewUser = () => {
           <span className={classes.spanning}>{errors.age?.message}</span>
           <Input
             htmlFor="password"
-            id="passowrd"
+            id="password"
             label="Enter Password"
             input={{ type: "password", ...register("password") }}
           ></Input>
           <span className={classes.spanning}>{errors.password?.message}</span>
           <Input
             htmlFor="password"
-            id="passowrd"
+            id="password"
             label="Confirm Password"
             input={{
               type: "password",
-              ...register("confirmPassword"),
+              ...register("confirmPassword")
             }}
           ></Input>
           <span className={classes.spanning}>

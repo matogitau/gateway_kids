@@ -1,8 +1,7 @@
-import clientPromise from "../../../lib/mongodb";
 import { hashedPassword } from "../../../lib/hashedPassword";
 import {
   connectDbandColl,
-  insertOneOnly,
+  insertOneOnly
 } from "../../../helperFunctions/errorHandleinDb";
 
 const handler = async (req, res) => {
@@ -25,7 +24,7 @@ const handler = async (req, res) => {
     const collection = await connectDbandColl("users", res);
 
     const checkUser = await collection.findOne({
-      $or: [{ email: email }, { userName: userName }],
+      $or: [{ email: email }, { userName: userName }]
     }); /* $or operator checks if either of the condition is met */
     if (checkUser) {
       res.status(422).json({ message: "user already Exists" });
@@ -48,7 +47,7 @@ const handler = async (req, res) => {
         userName: userName,
         email: email,
         age: age,
-        password: encryptedPassword,
+        password: encryptedPassword
       },
       res
     );

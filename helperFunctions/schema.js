@@ -8,5 +8,14 @@ export const schema = yup.object().shape({
   confirmPassword: yup
     .string()
     .required()
-    .oneOf([yup.ref("password"), null], "Passwords dont match!"),
+    .oneOf([yup.ref("password"), null], "Passwords dont match!")
+});
+
+export const changePasswordSchema = yup.object().shape({
+  oldPassword: yup.string().min(8).max(15).required(),
+  newPassword: yup.string().min(8).max(15).required(),
+  newPasswordConfirm: yup
+    .string()
+    .required()
+    .oneOf([yup.ref("newPassword"), null], "Passwords dont match!")
 });

@@ -11,12 +11,11 @@ const sendDataHandler = async (data) => {
     method: data.method,
     body: JSON.stringify({ contents }),
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   }).then(async (response) => {
     try {
-      const data = await response; /* go to courses index */
-      /* param.replace("/courses"); */
+      const data = await response;
     } catch (error) {
       /* show errors using state */
       console.log("Error happened here!");
@@ -26,7 +25,7 @@ const sendDataHandler = async (data) => {
       throw new Error(data.message || "something went wrong");
     }
     if (response.ok) {
-      console.log("all is ok");
+      return "all is ok";
     }
   });
 };

@@ -10,3 +10,6 @@
   grid-auto-flow: column;
   grid-gap: 1rem;
 }
+.spanning {
+  color: red;
+}
