@@ -18,9 +18,10 @@ const ChangePassword = (props) => {
   });
 
   const onSubmitHandler = async (userInputs) => {
+    console.log(userInputs);
     sendDataHandler({
       api: "/api/auth/users/changePassword",
-      method: "POST",
+      method: "PATCH",
       details: userInputs,
       direct: "/profile"
     });
