@@ -1,4 +1,4 @@
-import clientPromise from "../../../lib/mongodb";
+import clientPromise from "../lib/mongodb";
 
 export async function connectDbandColl(dbCollection) {
   /* you can pass dbCollection or fail */
@@ -10,14 +10,12 @@ export async function connectDbandColl(dbCollection) {
   } catch (error) {
     res.status(500).json({ message: "cant connect to Db or collection" });
   }
-
-  return client;
 }
 
-export async function insertOneOnly(connectDbandColl, documents, collection) {
-  /* connectDbandColl is db and collection
+export async function insertOneOnly(connectDbandColl, documents) {
+  /* connectDbandColl is the collection handle
   document is an obj to be inserted,
-    collection is db collection */
+     */
   try {
     await connectDbandColl.insertOne(documents);
     res.status(201).json({ message: "inserted!" });

@@ -1,5 +1,9 @@
 import clientPromise from "../../../lib/mongodb";
 import { hashedPassword } from "../../../lib/hashedPassword";
+import {
+  connectDbandColl,
+  insertOneOnly,
+} from "../../../helperFunctions/errorHandleinDb";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -18,10 +22,8 @@ const handler = async (req, res) => {
       return;
     }
 
-    const client = await clientPromise;
-    const db = client.db();
+    const collection = await connectDbandColl("users", res);
 
-    const collection = await db.collection("users");
     const checkUser = await collection.findOne({
       $or: [{ email: email }, { userName: userName }],
     }); /* $or operator checks if either of the condition is met */
@@ -32,14 +34,24 @@ const handler = async (req, res) => {
     }
 
     const encryptedPassword = await hashedPassword(password);
-    const results = collection.insertOne({
+    /*  const results = collection.insertOne({
       userName: userName,
       email: email,
       age: age,
       password: encryptedPassword,
-    });
+    }); 
 
-    res.status(201).json({ message: "user created successfuly" });
+    res.status(201).json({ message: "user created successfuly" }); */
+    insertOneOnly(
+      collection,
+      {
+        userName: userName,
+        email: email,
+        age: age,
+        password: encryptedPassword,
+      },
+      res
+    );
   }
 };
 
