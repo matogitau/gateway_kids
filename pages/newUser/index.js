@@ -13,9 +13,9 @@ const NewUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   });
 
   const submittedFormHandler = async (userInputs) => {
@@ -25,7 +25,7 @@ const NewUser = () => {
       api: "/api/auth/signUp",
       method: "POST",
       details: userInputs,
-      direct: "/courses"
+      direct: "/courses",
     });
 
     /* console.log(course); */
@@ -81,14 +81,14 @@ const NewUser = () => {
             label="Confirm Password"
             input={{
               type: "password",
-              ...register("confirmPassword")
+              ...register("confirmPassword"),
             }}
           ></Input>
           <span className={classes.spanning}>
             {errors.confirmPassword?.message}
           </span>
           <Button type="submit">Submit</Button>
-          <Link href="/Login" className={classes.link}>
+          <Link href="/login" className={classes.link}>
             Login Existing User
           </Link>
         </form>

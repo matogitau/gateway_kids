@@ -1,15 +1,1 @@
-.changePassword {
-  justify-self: center;
-  margin-top: 1rem;
-  background-color: #fef667;
-  padding: 0.9rem;
-  grid-gap: 1.2rem;
-}
-.submitCancel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 1rem;
-}
-.spanning {
-  color: red;
-}
+

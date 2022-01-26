@@ -23,6 +23,7 @@ export default async function handler(req, res) {
 
   const email = session.user.email;
   const data = { ...req.body.contents }; /* we are receiving contents as obj */
+
   const oldPassword = data.oldPassword;
   const newPassword = data.newPassword;
   const collection = await connectDbandColl("users", res);
@@ -45,9 +46,11 @@ export default async function handler(req, res) {
   const newHashedPassword = await hashedPassword(newPassword);
 
   const result = await updateOneOnly(
+    collection,
     { email: email },
-    { password: newHashedPassword }
+    { password: newHashedPassword },
+    res
   );
-
+  res.status(201).json({ message: "updated!" });
   // close client connection
 }

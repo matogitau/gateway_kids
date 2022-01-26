@@ -1,14 +1,12 @@
-import Link from "next/link";
+import NavLink from "next/link";
 import classes from "./SubMenu.module.css";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import Button from "../../UI/Button/Button";
 import { useSession, signOut } from "next-auth/react";
 
 const SubMenu = (props) => {
-  const {
-    data: session,
-    status
-  } = useSession(); /*  status returns authenticated */
+  const { data: session, status } =
+    useSession(); /*  status returns authenticated */
 
   const logoutHandler = () => {
     signOut();
@@ -19,77 +17,68 @@ const SubMenu = (props) => {
     open: {
       transition: {
         staggerchildren: 0.1 /* opens after 0.1 sec each */,
-        staggerDirection: 1 /* 1 starts from top */
-      }
+        staggerDirection: 1 /* 1 starts from top */,
+      },
     },
     closed: {
       transition: {
         staggerchildren: 0.1,
-        staggerDirection: -1
-      }
-    }
+        staggerDirection: -1,
+      },
+    },
   };
   const itemVariants = {
     open: {
-      opacity: 1
+      opacity: 1,
     },
     closed: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   };
-  const subMenu = [
-    { id: "Why Code", name: "WhyCode" },
-    { id: "Courses", name: "Courses" },
-    { id: "About Us", name: "AboutUs" },
-    { id: "Plans", name: "Plans" },
-    { id: "Login", name: "Login" },
-    { id: "New User", name: "NewUser" },
-    { id: "Profile", name: "Profile" }
-  ];
 
   const menuList = (
     <motion.li>
-      <Link
+      <NavLink
         href={`/whyCode`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
       >
         WhyCode
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         href={`/courses`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
       >
         Courses
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         href={`/aboutUs`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
       >
         AboutUs
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         href={`/plans`}
         activeClassName={classes.active}
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
       >
         Plans
-      </Link>
+      </NavLink>
       {!session && (
-        <Link
+        <NavLink
           href={`/login`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
           Login
-        </Link>
+        </NavLink>
       )}
       {session && (
         <span className={classes.logout} onClick={logoutHandler}>
@@ -98,25 +87,25 @@ const SubMenu = (props) => {
       )}
 
       {!session && (
-        <Link
+        <NavLink
           href={`/newUser`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
           NewUser
-        </Link>
+        </NavLink>
       )}
 
       {session && (
-        <Link
+        <NavLink
           href={`/profile`}
           activeClassName={classes.active}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
           Profile
-        </Link>
+        </NavLink>
       )}
     </motion.li>
   );
@@ -133,8 +122,8 @@ const SubMenu = (props) => {
               width: 0,
               transition: {
                 delay: 0.7,
-                duration: 0.3
-              }
+                duration: 0.3,
+              },
             }}
           >
             {/* initial sets size on page load */}

@@ -19,8 +19,8 @@ export async function insertOneOnly(connectDbandColl, documents, res) {
   document is an obj to be inserted,
      */
   try {
-    await connectDbandColl.insertOne(documents);
-    res.status(201).json({ message: "inserted!" });
+    const results = await connectDbandColl.insertOne(documents);
+    return results;
   } catch (error) {
     res.status(500).json({ message: "inserting failed" });
     return;
@@ -32,8 +32,8 @@ export async function findOneOnly(connectDbandColl, searchObj, res) {
   document is an obj to be used to find,
      */
   try {
-    await connectDbandColl.findOne(searchObj);
-    res.status(201).json({ message: "success!" });
+    const results = await connectDbandColl.findOne(searchObj);
+    return results;
   } catch (error) {
     res.status(500).json({ message: "searching failed" });
     return;
@@ -50,8 +50,13 @@ export async function updateOneOnly(
   document is an obj to be used to find,
      */
   try {
-    await connectDbandColl.updateOne(identifierObj, { $set: changingObj });
-    res.status(201).json({ message: "updated sucessfully!" });
+    console.log("identifier", identifierObj);
+    console.log("changing", changingObj);
+    const results = await connectDbandColl.updateOne(identifierObj, {
+      $set: changingObj,
+    });
+
+    return results;
   } catch (error) {
     res.status(500).json({ message: "update failed" });
     return;

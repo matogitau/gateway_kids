@@ -13,7 +13,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const submittedFormHandler = async (userInputs) => {
@@ -21,7 +21,7 @@ const Login = () => {
       redirect: false,
       email: userInputs.userNameEmail,
       userName: userInputs.userNameEmail,
-      password: userInputs.password
+      password: userInputs.password,
     }); /* result will always resolve */
 
     if (!result.error) {
@@ -49,7 +49,7 @@ const Login = () => {
             label="UserName or Email"
             input={{
               type: "text",
-              ...register("userNameEmail", { required: true, minLength: 4 })
+              ...register("userNameEmail", { required: true, minLength: 4 }),
             }}
           ></Input>
           <span className={classes.spanning}>
@@ -63,7 +63,7 @@ const Login = () => {
             label="Enter Password"
             input={{
               type: "password",
-              ...register("password", { required: true, minLength: 8 })
+              ...register("password", { required: true, minLength: 8 }),
             }} /* validation is added at register function */
           ></Input>
           <span className={classes.spanning}>
@@ -71,9 +71,9 @@ const Login = () => {
           </span>
           <div className={classes.password}>
             <Button type="submit">Submit</Button>
-            <Link href="/ForgotPassword">Forgot Password ?</Link>
+            <Link href="/forgotPassword">Forgot Password ?</Link>
           </div>
-          <Link href="/NewUser" className={classes.link}>
+          <Link href="/newUser" className={classes.link}>
             Create Account New User
           </Link>
         </form>
@@ -84,18 +84,18 @@ const Login = () => {
 /* determining whether to load login page on server side */
 export async function getServerSideProps(context) {
   const session = await getSession({
-    req: context.req
+    req: context.req,
   }); //returns session obj or null
   if (session) {
     return {
       redirect: {
         destination: "/",
-        permanent: false
-      }
+        permanent: false,
+      },
     };
   }
   return {
-    props: { session }
+    props: { session },
   };
 }
 

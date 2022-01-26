@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { getSession } from "next-auth/react"; /* can be used on serverside */
 
 import classes from "./Profile.module.css";
-import ChangePassword from "../../components/ChangePassword";
+import ChangePassword from "./changePassword";
 import { useState } from "react";
 
 const Profile = () => {
@@ -23,6 +23,7 @@ const Profile = () => {
           <li>my photo </li>
           <li>Enrolled Courses</li>
           <li onClick={changePasswordHandler}>change password</li>
+          <li>Enroll New Course</li>
         </ul>
       </nav>
 
@@ -43,7 +44,7 @@ export async function getServerSideProps(context) {
   if (!session) {
     return {
       redirect: {
-        destination: "/Login",
+        destination: "/login",
         permanent: false,
       },
     };

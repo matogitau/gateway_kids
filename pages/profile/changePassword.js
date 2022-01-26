@@ -1,12 +1,12 @@
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
-import Card from "../UI/card/Card";
-import classes from "./components.module.css";
+import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
+import Card from "../../UI/card/Card";
+import classes from "./Profile.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { changePasswordSchema } from "../helperFunctions/schema";
-
-import sendDataHandler from "../helperFunctions/sendData";
+import { changePasswordSchema } from "../../helperFunctions/schema";
+import sendDataHandler from "../../helperFunctions/sendData";
+import { getSession } from "next-auth/react"; /* can be used on serverside */
 
 const ChangePassword = (props) => {
   const {
@@ -18,14 +18,12 @@ const ChangePassword = (props) => {
   });
 
   const onSubmitHandler = async (userInputs) => {
-    console.log("was clicked");
-    console.log(userInputs);
-    /* sendDataHandler({
+    sendDataHandler({
       api: "/api/auth/users/changePassword",
       method: "PATCH",
       details: userInputs,
       direct: "/profile",
-    }); */
+    });
   };
 
   return (
@@ -67,3 +65,20 @@ const ChangePassword = (props) => {
 };
 
 export default ChangePassword;
+/* to redirect on the server side */
+export async function getServerSideProps(context) {
+  const session = await getSession({
+    req: context.req,
+  }); /* will extract session cookie */
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
+}
