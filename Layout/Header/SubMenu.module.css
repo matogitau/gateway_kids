@@ -25,7 +25,7 @@ div container is ul list*/
 .active {
   color: red;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   .aside ul li {
     grid-auto-flow: column;
   }

@@ -1,0 +1,12 @@
+/*  we dont need to do ../../ to go to helper
+we just use helper */
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/helper/*": ["helper/*"],
+      "@/UI/*": ["UI/*"],
+      "@/Layout/*": ["Layout/*"]
+    }
+  }
+}

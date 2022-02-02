@@ -1,7 +1,7 @@
 /* requests with / nothing comes here */
 import Head from "next/head";
 import Button from "../UI/Button/Button";
-import Card from "../UI/card/Card";
+import Card from "@/UI/card/Card";
 import classes from "../styles/Main.module.css";
 
 const Main = () => {

@@ -66,3 +66,11 @@ a {
 ul li {
   list-style: none;
 }
+
+.Notfound {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  color: red;
+  font-weight: 900;
+}

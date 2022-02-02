@@ -7,7 +7,7 @@ import clientPromise from "../../../lib/mongodb";
 // for login/logout/session creation
 export default NextAuth({
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   } /* check other providers you may add database etc */,
   providers: [
     CredentialsProviders({
@@ -21,8 +21,8 @@ export default NextAuth({
         const user = await usersCollection.findOne({
           $or: [
             { email: credentials.email },
-            { userName: credentials.userName }
-          ]
+            { userName: credentials.userName },
+          ],
         });
 
         if (!user) {
@@ -32,16 +32,16 @@ export default NextAuth({
           credentials.password,
           user.password
         );
-
+        console, log("am here");
         if (!isvalid) {
           throw new Error("password is invalid");
         }
 
         return {
-          email: user.email
+          email: user.email,
         }; /* only return email and username */
         /* client.close() */
-      }
-    })
-  ]
+      },
+    }),
+  ],
 });
