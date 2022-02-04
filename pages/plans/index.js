@@ -9,7 +9,7 @@ let plansList = PLANS.map((planDetails) => {
   return (
     <li key={planDetails}>
       <Card className={classes.CardSelf}>
-        <Link href={`Plans/:${planDetails}`}>{planDetails}</Link>
+        <Link href={`plans/${planDetails}`}>{planDetails}</Link>
       </Card>
     </li>
   );

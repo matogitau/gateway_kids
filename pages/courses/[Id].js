@@ -18,7 +18,7 @@ const CourseDetails = (props) => {
     }).then(async (response) => {
       try {
         const data = await response;
-        param.replace("cCourses"); /* go to courses index */
+        param.replace("/courses"); /* go to courses index */
       } catch (error) {
         /* show errors using state */
         console.log("Error happened here!");

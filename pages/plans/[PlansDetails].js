@@ -1,10 +1,14 @@
 import React from "react";
-/* import { useParams } from 'react-router-dom'; */
+import { useRouter } from "next/router";
 
 const PlansDetails = () => {
+  const router = useRouter();
+  const params = router.query.plansDetails || [];
+  console.log(router);
+
   return (
     <div>
-      <p>Here we give plans details as {/* {param.PlanId} */}</p>
+      <p>Here we give plans details as {params}</p>
     </div>
   );
 };
