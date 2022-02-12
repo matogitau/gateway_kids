@@ -13,9 +13,9 @@ export default function MyApp({
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <div className="App">
+    <div>
       <SessionProvider session={session}>
-        <Header />
+        {/* <Header /> */}
         <Component {...pageProps} />
         <Footer />
       </SessionProvider>
